@@ -1,0 +1,33 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Local runtime configuration (may contain absolute paths)
+gimpml/gimpml_config.json
+
+# ONNX model weights (large files; obtain separately)
+*.onnx
+*.onnx.data
+
+# Temporary files and logs
+*.log
+error_log/
+error_log_*.txt
+*.tmp
+
+# Local virtual environments
+.venv/
+venv/
+gimpenv/
+gimpenv3/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated model runtime configuration
+gimpml/weights/rembg_gimpml_config.json
