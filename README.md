@@ -16,6 +16,13 @@ without cloning the entire GIMP-ML project.
 - CPU inference option
 - Additional BiRefNet General, General Lite, DIS, and HRSOD sessions
 
+## Screenshots
+
+### GIMP-ML Remove Background Interface
+
+![GIMP-ML Remove Background plugin interface](docs/images/screenshot-gimpml.png)
+
+
 ## Supported models
 
 1. `u2net`
