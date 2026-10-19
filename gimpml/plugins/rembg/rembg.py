@@ -39,6 +39,7 @@ model_dict = {
     MODEL10: "birefnet-general-lite",
     MODEL11: "birefnet-dis",
     MODEL12: "birefnet-hrsod",
+    MODEL13: "birefnet-cod",
 }
 model_name_enum = StringEnum(
     MODEL1,
@@ -65,6 +66,8 @@ model_name_enum = StringEnum(
     _(MODEL11),
     MODEL12,
     _(MODEL12),
+    MODEL13,
+    _(MODEL13),
 )
 
 def inpainting(
