@@ -22,6 +22,20 @@ without cloning the entire GIMP-ML project.
 
 ![GIMP-ML Remove Background plugin interface](docs/images/screenshot-gimpml.png)
 
+### Experimental Segmentation Comparisons — MODEL13
+
+These images document experimental segmentation and alpha-compositing comparisons using leaf-insect and frog test images. The leaf-like structures are part of the fantasy creature's body and should not be mistaken for background foliage.
+
+**Note:** These are MODEL13 experimental comparisons, not official MODEL14 output screenshots.
+
+#### Leaf-Insect Visual Comparison
+
+![MODEL13 leaf-insect visual comparison](docs/images/model13-leaf-insect-visual-comparison.png)
+
+#### Cross-Image Alpha Comparison
+
+![MODEL13 cross-image alpha comparison](docs/images/model13-cross-image-alpha-comparison.png)
+
 
 ## Supported models
 
