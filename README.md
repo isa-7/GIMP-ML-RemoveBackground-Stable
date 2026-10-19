@@ -10,7 +10,7 @@ without cloning the entire GIMP-ML project.
 ## Features
 
 - GIMP 3 Python plugin interface
-- 12 selectable background-removal models
+- 13 selectable background-removal models
 - Optional alpha matting
 - Optional mask-only output
 - CPU inference option
@@ -37,6 +37,7 @@ without cloning the entire GIMP-ML project.
 10. `birefnet-general-lite`
 11. `birefnet-dis`
 12. `birefnet-hrsod`
+13. `birefnet-cod`
 
 ## Requirements
 
@@ -58,7 +59,7 @@ The first eight models use the download or lookup logic defined in
 `gimpml/tools/rembg/session_factory.py`. Verify that their required weights
 can be obtained successfully in your environment.
 
-The following four models require their corresponding files under
+The following five models require their corresponding files under
 `gimpml/weights/u2net/`:
 
 | Model | Required file |
@@ -67,6 +68,7 @@ The following four models require their corresponding files under
 | BiRefNet General Lite | `BiRefNet-general-bb_swin_v1_tiny-epoch_232.onnx` |
 | BiRefNet DIS | `BiRefNet-DIS-epoch_590.onnx` |
 | BiRefNet HRSOD | `BiRefNet-HRSOD_DHU-epoch_115.onnx` |
+| BiRefNet COD | `BiRefNet-COD-epoch_125.onnx` |
 
 Obtain each weight from its legitimate source and review its applicable
 license and usage restrictions before downloading, redistributing, or
