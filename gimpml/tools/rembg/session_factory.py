@@ -23,6 +23,7 @@ from session_birefnet_general_lite import BiRefNetGeneralLiteSession
 from session_birefnet_dis import BiRefNetDISSession
 from session_birefnet_hrsod import BiRefNetHRSODSession
 from session_birefnet_cod import BiRefNetCODSession
+from session_birefnet_massive import BiRefNetMassiveSession
 from session_silueta import SiluetaSession
 
 from gimpml.plugins.module_utils import *
@@ -83,6 +84,10 @@ def new_session(model_name: str) -> BaseSession:
         md5 = None
         url = None
         session_class = BiRefNetCODSession
+    elif model_name == "birefnet-massive":
+        md5 = None
+        url = None
+        session_class = BiRefNetMassiveSession
     else:
         assert AssertionError(
             "Choose between u2net, u2netp, u2net_human_seg or u2net_cloth_seg"
@@ -105,6 +110,8 @@ def new_session(model_name: str) -> BaseSession:
         path = os.path.join(home, "BiRefNet-HRSOD_DHU-epoch_115.onnx")
     elif model_name == "birefnet-cod":
         path = os.path.join(home, "BiRefNet-COD-epoch_125.onnx")
+    elif model_name == "birefnet-massive":
+        path = os.path.join(home, "BiRefNet-massive-TR_DIS5K_TR_TEs-epoch_420.onnx")
     else:
         path = os.path.join(home, f"{model_name}.onnx")
     #path.parents[0].mkdir(parents=True, exist_ok=True)
@@ -115,6 +122,7 @@ def new_session(model_name: str) -> BaseSession:
     "birefnet-dis",
     "birefnet-hrsod",
     "birefnet-cod",
+    "birefnet-massive",
 ):
         if not os.path.isfile(path):
             raise FileNotFoundError(
