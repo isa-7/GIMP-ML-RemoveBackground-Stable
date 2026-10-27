@@ -136,7 +136,7 @@ def run(procedure, run_mode, image, drawables, config, run_data):
     n_drawables = len(drawables)
     layer = drawables[0] if n_drawables else None
 
-    force_cpu = config.get_property("force_cpu")
+    force_cpu = True
     model_name = config.get_property("model_name")
     alpha_matting = config.get_property("alpha_matting")
     alpha_matting_foreground_threshold = config.get_property(
@@ -265,16 +265,10 @@ def run(procedure, run_mode, image, drawables, config, run_data):
         grid.attach(spin, 3, 0, 1, 1)
         spin.show()
         
-        # Force CPU parameter
-        spin = GimpUi.prop_check_button_new(config, "force_cpu", _("Force _CPU"))
-        spin.set_tooltip_text(
-            _(
-                "If checked, CPU is used for model inference."
-                " Otherwise, GPU will be used if available."
-            )
-        )
-        grid.attach(spin, 5, 0, 1, 1)
-        spin.show()
+        # CPU-only inference indicator
+        label = Gtk.Label.new(_("Via CPU"))
+        grid.attach(label, 5, 0, 1, 1)
+        label.show()
 
         # Model Name parameter
         label = Gtk.Label.new_with_mnemonic(_("_Model Name:"))
@@ -295,7 +289,7 @@ def run(procedure, run_mode, image, drawables, config, run_data):
         while True:
             response = dialog.run()
             if response == Gtk.ResponseType.OK:
-                force_cpu = config.get_property("force_cpu")
+                force_cpu = True
                 model_name = config.get_property("model_name")
                 alpha_matting = config.get_property("alpha_matting")
                 alpha_matting_foreground_threshold = config.get_property(

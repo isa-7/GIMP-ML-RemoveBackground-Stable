@@ -35,8 +35,9 @@ def alpha_matting_cutout(
     background_threshold: int,
     erode_structure_size: int,
 ) -> PILImage:
-    img = np.asarray(img)
-    mask = np.asarray(mask)
+    # Alpha matting expects an RGB image with exactly 3 channels.
+    img = np.asarray(img.convert("RGB"))
+    mask = np.asarray(mask.convert("L"))
 
     is_foreground = mask > foreground_threshold
     is_background = mask < background_threshold

@@ -93,7 +93,7 @@ def new_session(model_name: str) -> BaseSession:
             "Choose between u2net, u2netp, u2net_human_seg or u2net_cloth_seg"
         )
 
-    
+
     home = os.path.join(weight_path, "u2net")
     if model_name == "birefnet-portrait":
         path = os.path.join(home, "BiRefNet-portrait-epoch_150.onnx")
@@ -140,15 +140,12 @@ def new_session(model_name: str) -> BaseSession:
     else:
         if not os.path.exists(path):
             print(f"Model {model_name} weights are not downloaded, please get them from {url}")
-
     sess_opts = ort.SessionOptions()
-
-    if "OMP_NUM_THREADS" in os.environ:
-        sess_opts.inter_op_num_threads = int(os.environ["OMP_NUM_THREADS"])
-
     return session_class(
         model_name,
         ort.InferenceSession(
-            str(path), providers=ort.get_available_providers(), sess_options=sess_opts
+            str(path),
+            providers=["CPUExecutionProvider"],
+            sess_options=sess_opts,
         ),
     )
