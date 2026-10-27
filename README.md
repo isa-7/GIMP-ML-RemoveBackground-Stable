@@ -11,10 +11,30 @@ without cloning the entire GIMP-ML project.
 
 - GIMP 3 Python plugin interface
 - 14 selectable background-removal models
+- CPU-only inference using ONNX Runtime's CPUExecutionProvider
+- Clear `Via CPU` indicator in the Remove Background dialog
 - Optional alpha matting
+- RGB input and grayscale mask normalization for alpha matting
 - Optional mask-only output
-- CPU inference option
-- Additional BiRefNet General, General Lite, DIS, and HRSOD sessions
+- Additional BiRefNet General, General Lite, DIS, HRSOD, COD, and Massive sessions
+
+## CPU-only inference
+
+The current stable implementation uses ONNX Runtime's
+`CPUExecutionProvider` when creating sessions through the Remove Background
+session factory.
+
+The plugin dialog displays `Via CPU` to indicate that CPU inference is
+selected. GPU inference through CUDA or TensorRT is not used by this
+session factory configuration.
+
+CPU inference may be slower than GPU inference, depending on the model,
+image dimensions, and computer hardware.
+
+The CPU-only configuration was tested in the maintainer's GIMP 3.2.6
+environment on Windows 11. Compatibility with other environments and
+clean installations has not yet been independently verified.
+
 
 ## Screenshots
 
@@ -108,9 +128,16 @@ files.
 
 ## Installation status
 
-This repository is being prepared as a focused distribution. A clean
-installation procedure and fresh-environment test are still required before
-considering it a ready-to-install release.
+The Remove Background CPU-only workflow has been tested successfully
+in the maintainer's GIMP 3.2.6 environment on Windows 11.
+
+The plugin displayed the `Via CPU` indicator and successfully removed
+the background in the tested environment.
+
+A clean installation procedure and fresh-environment test are still
+required before considering this repository a ready-to-install release.
+Other operating systems, Python environments, and all individual models
+require separate verification.
 
 ## Credits and licensing
 
